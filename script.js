@@ -45,3 +45,37 @@ function draw(){
     noLoop()
   }
 }
+
+
+
+function spiralP(startT,stopT,a,b){
+    beginShape()
+    cnt = 0;
+    for(let i=startT;i<stopT;i+=0.0005){
+      r=a*exp(b*i); 
+      x	=	r*cos(i)
+      y	=	r*sin(i);
+      vertex(x,y);
+      sp[cnt]=createVector(x,y);
+      cnt++;
+    }
+    endShape()
+  }
+  
+  function keyPressed(){
+    if(keyCode===32)
+  {
+    sp = [];
+    frameCount = 0;
+    loop()
+    setup()
+    draw()
+    
+  }  
+    if(keyCode===83){
+      save(cnv,'charged.png')
+    }
+    
+    
+  }
+   
